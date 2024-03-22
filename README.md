@@ -32,17 +32,17 @@ Content-Type: application/json
         "header": {
           "name": "piveau-consus-importing-ldes",
           "segmentNumber": 1,
-          "title": "Importing LD Event Stream",
+          "title": "Importing LDES",
           "processed": false
         },
         "body": {
           "endpoint": {
-            "address": http://next.endpoint.address.com/pipe,
+            "address": "http://next.endpoint.address.com/pipe",
             "method": "PUT",
             "protocol": "http"
           },
           "config": { # TODO: extend config with other LDES client parameters?
-            "address": https://ldes.source.com/catalog,
+            "address": "https://ldes.source.com/catalog",
             "catalogue": "dane-gov-pl"
           }
         }
@@ -56,7 +56,7 @@ Content-Type: application/json
         },
         "body": {
           "endpoint": {
-            "address": http://piveau-consus-exporting-hub/pipe,
+            "address": "http://piveau-consus-exporting-hub/pipe",
             "method": "PUT",
             "protocol": "http"
           }
@@ -94,17 +94,17 @@ Whenever the LDES Client emits an object, we need to use a copy of this descript
         "header": {
           "name": "piveau-consus-importing-ldes",
           "segmentNumber": 1,
-          "title": "Importing LD Event Sstream",
+          "title": "Importing LDES",
           "processed": true
         },
         "body": {
           "endpoint": {
-            "address": http://next.endpoint.address.com/pipe,
+            "address": "http://next.endpoint.address.com/pipe",
             "mehtod": "PUT",
             "protocol": "http"
           },
           "config": {
-            "address": https://ldes.source.com/catalog,
+            "address": "https://ldes.source.com/catalog",
             "catalogue": "ldes-source1-catalogue"
           }
         }
@@ -118,7 +118,7 @@ Whenever the LDES Client emits an object, we need to use a copy of this descript
         },
         "body": {
           "endpoint": {
-            "address": http://piveau-consus-exporting-hub/pipe,
+            "address": "http://piveau-consus-exporting-hub/pipe",
             "mehtod": "PUT",
             "protocol": "http"
           },
