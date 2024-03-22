@@ -1,5 +1,5 @@
 import { Stream } from "@ajuvercr/js-runner";
-import { getCurrentSegment, piveauInstance, Send } from "./types";
+import { getCurrentSegment, piveauInstance, Send } from "./piveau";
 import { Config, intoConfig, replicateLDES } from "ldes-client";
 import * as N3 from "n3";
 
