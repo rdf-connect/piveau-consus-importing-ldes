@@ -1,0 +1,25 @@
+@prefix rml: <http://w3id.org/rml/>.
+@prefix js: <https://w3id.org/conn/js#>.
+@prefix ws: <https://w3id.org/conn/ws#>.
+@prefix : <https://w3id.org/conn#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix rml: <https://w3id.org/conn/rml#>.
+@prefix ql: <http://semweb.mmlab.be/ns/ql#>.
+
+<> owl:imports <./node_modules/@ajuvercr/js-runner/ontology.ttl>.
+<> owl:imports <./node_modules/@ajuvercr/js-runner/channels/file.ttl>.
+<> owl:imports <./node_modules/@ajuvercr/js-runner/channels/http.ttl>.
+<> owl:imports <./processor.ttl>.
+<http/reader> a :HttpReaderChannel;
+  :httpPort [
+    a :EnvVariable;
+    :envDefault 3000;
+    :envKey "LDES_PORT";
+  ];
+  :statusCode 202;
+  :httpEndpoint "0.0.0.0".
+
+[ ] a js:Piveau;
+  js:input <http/reader>.
+

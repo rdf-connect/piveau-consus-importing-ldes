@@ -1,0 +1,54 @@
+@prefix js: <https://w3id.org/conn/js#>.
+@prefix fno: <https://w3id.org/function/ontology#>.
+@prefix fnom: <https://w3id.org/function/vocabulary/mapping#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix : <https://w3id.org/conn#>.
+@prefix sh: <http://www.w3.org/ns/shacl#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+
+js:Piveau a js:JsProcess;
+  js:file <./lib/index.js>;
+  js:function "piveau";
+  js:location <./>;
+  js:mapping [
+    a fno:Mapping;
+    fno:parameterMapping [
+      a fnom:PositionParameterMapping;
+      fnom:functionParameter "Data input";
+      fnom:implementationParameterPosition "0"^^xsd:int;
+    ];
+  ].
+
+[ ] a sh:NodeShape;
+  sh:targetClass js:Piveau;
+  sh:property [
+    sh:class :ReaderChannel;
+    sh:path js:input;
+    sh:name "Data input";
+    sh:minCount 1;
+    sh:maxCount 1;
+  ].
+
+
+js:Log a js:JsProcess;
+  js:file <./lib/index.js>;
+  js:function "consoleLog";
+  js:location <./>;
+  js:mapping [
+    a fno:Mapping;
+    fno:parameterMapping [
+      a fnom:PositionParameterMapping;
+      fnom:functionParameter "Data input";
+      fnom:implementationParameterPosition "0"^^xsd:int;
+    ];
+  ].
+
+[ ] a sh:NodeShape;
+  sh:targetClass js:Log;
+  sh:property [
+    sh:class :ReaderChannel;
+    sh:path js:input;
+    sh:name "Data input";
+    sh:minCount 1;
+    sh:maxCount 1;
+  ].

@@ -1,11 +1,13 @@
 {
   "devDependencies": {
+    "@types/n3": "^1.16.4",
     "typescript": "^5.4.3"
   },
   "name": "piveau-consus-importing-ldes",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "build": "npx tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -13,7 +15,8 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "@ajuvercr/js-runner": "^0.1.17",
-    "ldes-client": "^0.0.9-alpha.3"
+    "@ajuvercr/js-runner": "^0.1.18-alpha.0",
+    "ldes-client": "^0.0.9-alpha.3",
+    "n3": "^1.17.2"
   }
 }

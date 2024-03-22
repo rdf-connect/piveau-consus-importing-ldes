@@ -30,16 +30,15 @@ export type Payload = {
   body: {
     dataInfo: {
       catalogue: string;
-      total: number;
     };
-    dataMimeType: "application/rdf+xml";
+    dataMimeType: "application/trig";
     data: string;
   };
 };
 
 export type Descriptor = {
   header: Header;
-  body: Segment[];
+  body: { segments: Segment[] };
 };
 
 export type Segment<C = any> = {
@@ -52,7 +51,9 @@ export type Segment<C = any> = {
 };
 
 export function getCurrentSegment<T>(descriptor: Descriptor): Segment<T> {
-  const unprocessed = descriptor.body.filter((x) => !x.header.processed);
+  const unprocessed = descriptor.body.segments.filter(
+    (x) => !x.header.processed,
+  );
   const minId = Math.min(...unprocessed.map((x) => x.header.segmentNumber));
   return unprocessed.find((x) => x.header.segmentNumber === minId)!;
 }
@@ -74,10 +75,9 @@ export function piveauInstance<C>(descriptor: Descriptor, cb: Callback<C>) {
         dataType: "text",
       },
       body: {
-        dataMimeType: "application/rdf+xml",
+        dataMimeType: "application/trig",
         dataInfo: {
           catalogue: segment.body.config!.catalogue,
-          total: 0,
         },
         data: item,
       },
@@ -86,12 +86,15 @@ export function piveauInstance<C>(descriptor: Descriptor, cb: Callback<C>) {
     nextSegment.body.payload = payload;
 
     const resp = await fetch(endpoint.address, {
-      body: JSON.stringify(payload),
+      body: JSON.stringify(descriptor),
       method: "PUT",
     });
+
     if (!resp.ok) {
       throw "Response was not okay " + resp.statusText;
     }
+
+    await resp.blob();
   };
 
   cb(segment.body.config!, send);
