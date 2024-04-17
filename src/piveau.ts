@@ -85,11 +85,21 @@ export function piveauInstance<C>(descriptor: Descriptor, cb: Callback<C>) {
 
     nextSegment.body.payload = payload;
 
+    console.log("Sending member to next piveau segment", endpoint.address);
+    console.log("Descriptor");
+    console.log(JSON.stringify(descriptor));
+    console.log("Headers", { "content-type": "application/json" });
+
     const resp = await fetch(endpoint.address, {
       body: JSON.stringify(descriptor),
       method: "PUT",
       headers: { "content-type": "application/json" },
     });
+    console.log(
+      resp.status,
+      resp.statusText,
+      JSON.stringify(Object.fromEntries([...resp.headers])),
+    );
 
     if (!resp.ok) {
       throw "Response was not okay " + resp.statusText;
