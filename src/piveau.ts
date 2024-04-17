@@ -87,7 +87,7 @@ export function piveauInstance<C>(descriptor: Descriptor, cb: Callback<C>) {
 
     const resp = await fetch(endpoint.address, {
       body: JSON.stringify(descriptor),
-      method: "POST",
+      method: endpoint.method,
       headers: { "content-type": "application/json" },
     });
 
