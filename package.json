@@ -1,6 +1,8 @@
 {
   "devDependencies": {
+    "@types/js-yaml": "^4.0.9",
     "@types/n3": "^1.16.4",
+    "@types/node": "^20.12.7",
     "typescript": "^5.4.3"
   },
   "name": "piveau-consus-importing-ldes",
@@ -15,8 +17,9 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "@ajuvercr/js-runner": "^0.1.18-alpha.0",
-    "ldes-client": "^0.0.9-alpha.3",
+    "@ajuvercr/js-runner": "0.1.18-alpha.0",
+    "js-yaml": "^4.1.0",
+    "ldes-client": "0.0.9-alpha.3",
     "n3": "^1.17.2"
   }
 }

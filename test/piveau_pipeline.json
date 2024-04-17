@@ -1,0 +1,50 @@
+{
+  "header": {
+    "id": "f1044a89-ba36-46ae-b6a1-83847c862fb2",
+    "name": "ldes-test-catalogue",
+    "title": "Harvester – LDES source",
+    "version": "2.0.0",
+    "context": "DEU",
+    "transport": "payload"
+  },
+  "body": {
+    "segments": [
+      {
+        "header": {
+          "name": "piveau-consus-importing-ldes",
+          "segmentNumber": 1,
+          "title": "Importing LD Event Stream",
+          "processed": false
+        },
+        "body": {
+          "endpoint": {
+            "address": "http://piveau-consus-importing-ldes:3000/pipe",
+            "method": "PUT",
+            "protocol": "http"
+          },
+          "config": {
+            "url": "https://mumo.ilabt.imec.be/ldes/default",
+            "catalogue": "ldes-test-catalogue",
+            "stateFile": "/tmp/test.json",
+            "ordered": "none"
+          }
+        }
+      },
+      {
+        "header": {
+          "name": "piveau-consus-exporting-hub",
+          "segmentNumber": 2,
+          "title": "Exporting hub",
+          "processed": false
+        },
+        "body": {
+          "endpoint": {
+            "address": "http://piveau-consus-exporting-hub:8080/pipe",
+            "method": "POST",
+            "protocol": "http"
+          }
+        }
+      }
+    ]
+  }
+}
