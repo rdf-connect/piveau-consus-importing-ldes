@@ -3,7 +3,7 @@ FROM node:21-alpine as base
 WORKDIR /app
 
 ENV LDES_PORT=3000
-ENV DEBUG=*
+# ENV DEBUG=*
 RUN npm install -g @ajuvercr/js-runner
 
 # install dependencies into temp directory
