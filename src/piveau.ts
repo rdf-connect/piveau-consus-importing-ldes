@@ -32,7 +32,7 @@ export type Payload = {
       catalogue: string;
       content: "ld-event";
     };
-    dataMimeType: "application/trig";
+    dataMimeType: "application/n-quads";
     data: string;
   };
 };
@@ -76,7 +76,7 @@ export function piveauInstance<C>(descriptor: Descriptor, cb: Callback<C>) {
         dataType: "text",
       },
       body: {
-        dataMimeType: "application/trig",
+        dataMimeType: "application/n-quads",
         dataInfo: {
           catalogue: segment.body.config!.catalogue,
           content: "ld-event",
