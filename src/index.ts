@@ -34,9 +34,7 @@ export function piveau(piveau: Stream<string>) {
           if (el.value) {
             count += 1;
 
-            const str = new N3.Writer({
-              format: "application/trig",
-            }).quadsToString(el.value!.quads);
+            const str = new N3.Writer().quadsToString(el.value!.quads);
 
             await send(str);
           }

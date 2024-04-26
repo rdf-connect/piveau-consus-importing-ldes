@@ -18,7 +18,7 @@ body:
           method: PUT
           protocol: http
         config:
-          url: https://mumo.ilabt.imec.be/ldes/default
+          url: https://www.pieter.pm/dcat/sweden/feed.ttl
           catalogue: ldes-test-catalogue
           stateFile: /tmp/test.json
           ordered: none
