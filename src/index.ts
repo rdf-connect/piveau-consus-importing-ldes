@@ -1,8 +1,12 @@
-import { Stream } from "@ajuvercr/js-runner";
 import { Descriptor, getCurrentSegment, piveauInstance, Send } from "./piveau";
-import { Config, intoConfig, replicateLDES } from "ldes-client";
+import { Config, enhanced_fetch, intoConfig, replicateLDES } from "ldes-client";
 import * as N3 from "n3";
 import * as yaml from "js-yaml";
+
+type GreetFunction<T> = (a: T) => void;
+interface Stream<T> {
+  data(func: GreetFunction<T>): void;
+}
 
 /**
  * @param piveau HTTP piveau reader
@@ -16,14 +20,25 @@ export function piveau(piveau: Stream<string>) {
         config: Partial<Config> & {
           url: string;
           ordered?: "ascending" | "descending" | "none";
+          fetchConfig?: {}
         },
         send: Send,
       ) => {
         config.onlyDefaultGraph = true;
+        const fetch_f = enhanced_fetch({
+          safe: true, concurrent: 1, retry: {
+            maxRetries: 5
+          },
+        },
+          (a, b) => {
+            return fetch(a, b)
+          })
+
         const client = replicateLDES(
-          intoConfig(config),
-          undefined,
-          undefined,
+          intoConfig({
+            url: config.url,
+            fetch: fetch_f
+          }),
           config.ordered || "none",
         );
 
@@ -34,7 +49,9 @@ export function piveau(piveau: Stream<string>) {
           if (el.value) {
             count += 1;
 
-            const str = new N3.Writer().quadsToString(el.value!.quads);
+            const str = new N3.Writer({
+              format: "application/N-Quads",
+            }).quadsToString(el.value!.quads);
 
             await send(str);
           }
