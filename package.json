@@ -1,9 +1,10 @@
 {
   "name": "piveau-consus-importing-ldes",
   "version": "1.0.0",
+  "type": "module",
   "main": "index.js",
   "scripts": {
-    "build": "npx tsc",
+    "build": "npx tsc && npx tsc-esm-fix",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -11,7 +12,8 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "@rdfc/js-runner": "^1.0.0",
+    "@rdfc/js-runner": "^3.0.0",
+    "@rdfc/orchestrator-js": "^2.0.0",
     "js-yaml": "^4.1.0",
     "ldes-client": "0.1.8",
     "n3": "^1.26.0"
@@ -20,6 +22,7 @@
     "@types/js-yaml": "^4.0.9",
     "@types/n3": "^1.26.0",
     "@types/node": "^20.12.7",
+    "tsc-esm-fix": "^3.1.2",
     "typescript": "^5.4.3"
   }
 }

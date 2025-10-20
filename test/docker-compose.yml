@@ -1,5 +1,7 @@
 services:
   piveau-consus-importing-ldes:
+    environment:
+      DEBUG: "*"
     build: 
       context: ../
     ports:

@@ -1,3 +1,5 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix rdfc: <https://w3id.org/rdf-connect#>.
 @prefix js: <https://w3id.org/conn/js#>.
 @prefix fno: <https://w3id.org/function/ontology#>.
 @prefix fnom: <https://w3id.org/function/vocabulary/mapping#>.
@@ -6,49 +8,71 @@
 @prefix sh: <http://www.w3.org/ns/shacl#>.
 @prefix owl: <http://www.w3.org/2002/07/owl#>.
 
-js:Piveau a js:JsProcess;
-  js:file <./lib/index.js>;
-  js:function "piveau";
-  js:location <./>;
-  js:mapping [
-    a fno:Mapping;
-    fno:parameterMapping [
-      a fnom:PositionParameterMapping;
-      fnom:functionParameter "Data input";
-      fnom:implementationParameterPosition "0"^^xsd:int;
-    ];
-  ].
+rdfc:HTTPConsumer a owl:Class, rdfs:Class;
+  rdfc:jsImplementationOf rdfc:Processor;
+  rdfc:file <./lib/index.js>;
+  rdfc:class "HTTPConsumer";
+  rdfc:entrypoint <./>.
 
 [ ] a sh:NodeShape;
-  sh:targetClass js:Piveau;
+  sh:targetClass rdfc:HTTPConsumer;
   sh:property [
-    sh:class :ReaderChannel;
-    sh:path js:input;
-    sh:name "Data input";
+    sh:class rdfc:Writer;
+    sh:path rdfc:output;
+    sh:name "output";
+    sh:minCount 1;
+    sh:maxCount 1;
+  ], [
+    sh:datatype xsd:integer;
+    sh:path rdfc:port;
+    sh:name "port";
+    sh:maxCount 1;
+  ], [
+    sh:datatype xsd:string;
+    sh:path rdfc:host;
+    sh:name "host";
+    sh:maxCount 1;
+  ], [
+    sh:datatype xsd:integer;
+    sh:path rdfc:statusCode;
+    sh:name "statusCode";
+    sh:maxCount 1;
+  ].
+
+rdfc:Piveau a owl:Class, rdfs:Class;
+  rdfc:jsImplementationOf rdfc:Processor;
+  rdfc:file <./lib/index.js>;
+  rdfc:class "Piveau";
+  rdfc:entrypoint <./>.
+
+[ ] a sh:NodeShape;
+  sh:targetClass rdfc:Piveau;
+  sh:property [
+    sh:class rdfc:Writer;
+    sh:path rdfc:output;
+    sh:name "output";
+    sh:maxCount 1;
+  ], [
+    sh:class rdfc:Reader;
+    sh:path rdfc:input;
+    sh:name "input";
     sh:minCount 1;
     sh:maxCount 1;
   ].
 
-
-js:Log a js:JsProcess;
-  js:file <./lib/index.js>;
-  js:function "consoleLog";
-  js:location <./>;
-  js:mapping [
-    a fno:Mapping;
-    fno:parameterMapping [
-      a fnom:PositionParameterMapping;
-      fnom:functionParameter "Data input";
-      fnom:implementationParameterPosition "0"^^xsd:int;
-    ];
-  ].
+rdfc:Log a owl:Class, rdfs:Class;
+  rdfc:rdfcImplementationOf rdfc:Processor;
+  rdfc:file <./lib/index.js>;
+  rdfc:class "ConsoleLog";
+  rdfc:entrypoint <./>.
 
 [ ] a sh:NodeShape;
-  sh:targetClass js:Log;
+  sh:targetClass rdfc:Log;
   sh:property [
-    sh:class :ReaderChannel;
-    sh:path js:input;
-    sh:name "Data input";
+    sh:class rdfc:Reader;
+    sh:path rdfc:input;
+    sh:name "input";
     sh:minCount 1;
     sh:maxCount 1;
   ].
+
