@@ -22,6 +22,7 @@ body:
           catalogue: ldes-test-catalogue
           stateFile: /tmp/test.json
           ordered: none
+          noShape: true
     - header:
         name: piveau-consus-exporting-hub
         segmentNumber: 2

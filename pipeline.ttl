@@ -32,7 +32,3 @@
 <piveau> a rdfc:Piveau;
   rdfc:input <data>.
 
-# rdfc:output <transformed>.
-<logger> a rdfc:Log;
-  rdfc:input <transformed>.
-

@@ -64,7 +64,10 @@ export type Callback<C> = (config: C, send: Send) => void;
 
 
 
-export function piveauInstance<C>(descriptor: Descriptor, cb: Callback<C>) {
+export function piveauInstance<C>(descriptor: Descriptor): {
+    config: C,
+    send: Send
+} {
     const segment = getCurrentSegment<C>(descriptor);
     segment.header.processed = true;
 
@@ -102,5 +105,8 @@ export function piveauInstance<C>(descriptor: Descriptor, cb: Callback<C>) {
         await resp.blob();
     };
 
-    cb(segment.body.config!, send);
+    return {
+        config: segment.body.config!,
+        send,
+    }
 }

@@ -1,11 +1,10 @@
 services:
   piveau-consus-importing-ldes:
-    environment:
-      DEBUG: "*"
     build: 
       context: ../
     ports:
       - "3000:3000"
+
 
   piveau-consus-exporting-hub:
     image: "mendhak/http-https-echo"
