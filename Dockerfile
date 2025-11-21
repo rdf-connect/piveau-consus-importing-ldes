@@ -1,9 +1,10 @@
-FROM node:21-alpine as base
+FROM node:24-alpine as base
 RUN apk add --no-cache bash
 
 WORKDIR /app
 
 ENV LDES_PORT=3000
+ENV NODE_OPTIONS=--max-old-space-size=4096
 # ENV DEBUG=*
 # RUN npm install -g @ajuvercr/js-runner
 

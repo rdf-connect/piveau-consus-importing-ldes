@@ -9,13 +9,13 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "description": "",
   "dependencies": {
     "@rdfc/js-runner": "^3.0.0",
     "@rdfc/orchestrator-js": "^2.0.0",
     "js-yaml": "^4.1.0",
-    "ldes-client": "0.2.5-alpha.3",
+    "ldes-client": "0.2.5-alpha.4",
     "n3": "^1.26.0"
   },
   "devDependencies": {

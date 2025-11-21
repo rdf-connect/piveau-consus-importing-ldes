@@ -116,6 +116,10 @@ export class Piveau extends Processor<Args> {
                     await this.output.string(str);
                 }
                 await send(str);
+
+                if (count % 100) {
+                    this.logger.info(`Sent ${count} DCAT-AP entities so far`);
+                }
             }
 
             if (el.done) {
