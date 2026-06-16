@@ -1,11 +1,10 @@
 import { Descriptor, piveauInstance, Send } from "./piveau";
-import { enhanced_fetch, replicateLDES } from "ldes-client";
+import { enhanced_fetch, replicateLDES, intoConfig } from "ldes-client";
 import * as http from "http"
 import * as N3 from "n3";
 import * as yaml from "js-yaml";
 import { Processor, Reader, Writer } from "@rdfc/js-runner";
 import { Logger } from "winston";
-import { intoConfig } from "ldes-client";
 
 type OutArgs = {
     output: Writer,

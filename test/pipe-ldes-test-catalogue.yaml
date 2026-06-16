@@ -19,10 +19,10 @@ body:
           method: PUT
           protocol: http
         config:
-          url: https://www.pieter.pm/dcat/sweden/feed.ttl
-          #url: https://rdf-connect.github.io/belgium-dcat-ap-feed/index.trig
+          #url: https://www.pieter.pm/dcat/sweden/feed.ttl
+          url: https://rdf-connect.github.io/belgium-dcat-ap-feed/index.trig
           catalogue: ldes-test-catalogue
-          stateFile: /tmp/test.json
+          statePath: /tmp/state
           ordered: none
           noShape: true
     - header:
