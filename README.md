@@ -72,7 +72,7 @@ Content-Type: application/json
           "config": { 
             "url": "https://www.pieter.pm/dcat/sweden/feed.ttl",
             "catalogue": "dane-gov-pl",
-            "stateFile": "/tmp/test.json",
+            "statePath": "/tmp/state",
             "ordered": "ascending"
           }
         }
