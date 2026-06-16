@@ -1,6 +1,6 @@
 # piveau-consus-importing-ldes
  
-AThis is a [Piveau-Consus](https://doc.piveau.eu/consus/) importer plugin built with the RDF-Connect framework. It integrates into the Consus data import pipeline, allowing to harvest the change event data published in the form of Linked Data Event Streams (LDES) and forward them through multi-stage processing pipelines.
+This is a [Piveau-Consus](https://doc.piveau.eu/consus/) importer plugin built with the RDF-Connect framework. It integrates into the Consus data import pipeline, allowing to harvest the change event data published in the form of Linked Data Event Streams (LDES) and forward them through multi-stage processing pipelines.
 
 The importer starts an LDES client and pushes each event to the next piveau segment. A docker configuration is provided.
 
