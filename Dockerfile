@@ -6,7 +6,6 @@ WORKDIR /app
 ENV LDES_PORT=3000
 ENV NODE_OPTIONS=--max-old-space-size=4096
 # ENV DEBUG=*
-# RUN npm install -g @ajuvercr/js-runner
 
 # install dependencies into temp directory
 # this will cache them and speed up future builds

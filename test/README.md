@@ -17,5 +17,4 @@ bash ./run.sh
 I added `ENV DEBUG=*` in the Dockerfile, this enables debug logging.
 I also made the dependencies more strict in versioning (we are reworking versions and maybe the state on npm is dodgy).
 The piveau config now contains `"ordered": "none"`, just to emit members faster.
-` 
 

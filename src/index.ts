@@ -5,7 +5,7 @@ import * as N3 from "n3";
 import * as yaml from "js-yaml";
 import { Processor, Reader, Writer } from "@rdfc/js-runner";
 import { Logger } from "winston";
-import { Config } from "ldes-client/dist/lib/config";
+import { intoConfig } from "ldes-client";
 
 type OutArgs = {
     output: Writer,
@@ -13,6 +13,8 @@ type OutArgs = {
     host: string,
     statusCode: number,
 }
+
+type Config = ReturnType<typeof intoConfig>;
 
 export class HTTPConsumer extends Processor<OutArgs> {
     server: http.Server;

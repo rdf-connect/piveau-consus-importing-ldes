@@ -12,17 +12,17 @@
   "license": "MIT",
   "description": "",
   "dependencies": {
-    "@rdfc/js-runner": "^3.0.0",
-    "@rdfc/orchestrator-js": "^2.0.0",
-    "js-yaml": "^4.1.0",
-    "ldes-client": "0.2.5-alpha.4",
+    "@rdfc/js-runner": "^3.1.0",
+    "@rdfc/orchestrator-js": "^2.1.0",
+    "js-yaml": "^4.2.0",
+    "ldes-client": "^0.3.3",
     "n3": "^1.26.0"
   },
   "devDependencies": {
     "@types/js-yaml": "^4.0.9",
-    "@types/n3": "^1.26.0",
-    "@types/node": "^20.12.7",
+    "@types/n3": "^1.26.1",
+    "@types/node": "^25.9.3",
     "tsc-esm-fix": "^3.1.2",
-    "typescript": "^5.4.3"
+    "typescript": "^6.0.3"
   }
 }

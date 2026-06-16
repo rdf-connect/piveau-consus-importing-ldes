@@ -15,10 +15,12 @@ body:
       body:
         endpoint:
           address: http://piveau-consus-importing-ldes:3000/pipe
+          #address: http://localhost:3000/pipe
           method: PUT
           protocol: http
         config:
           url: https://www.pieter.pm/dcat/sweden/feed.ttl
+          #url: https://rdf-connect.github.io/belgium-dcat-ap-feed/index.trig
           catalogue: ldes-test-catalogue
           stateFile: /tmp/test.json
           ordered: none
@@ -31,5 +33,6 @@ body:
       body:
         endpoint:
           address: http://piveau-consus-exporting-hub:8080/pipe
+          #address: http://localhost:8080/pipe
           method: POST
           protocol: http
