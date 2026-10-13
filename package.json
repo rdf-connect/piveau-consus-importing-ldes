@@ -12,8 +12,8 @@
   "license": "MIT",
   "description": "",
   "dependencies": {
-    "@rdfc/js-runner": "^3.1.0",
-    "@rdfc/orchestrator-js": "^2.1.0",
+    "@rdfc/js-runner": "^3.4.0",
+    "@rdfc/orchestrator-js": "^2.3.0",
     "js-yaml": "^4.2.0",
     "ldes-client": "^0.3.3",
     "n3": "^1.26.0"
